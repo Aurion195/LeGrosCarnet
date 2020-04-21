@@ -1,5 +1,7 @@
 package carnet;
 
+import enumeration.EnumTelephone;
+
 public class Telephone {
 	/**
 	 * Prefix 
@@ -12,13 +14,19 @@ public class Telephone {
 	public Integer numero ;
 	
 	/**
+	 * Type de téléphone
+	 */
+	public String type ;
+	
+	/**
 	 * Constructeur du téléphone
 	 * @param prefix = prefix ;
 	 * @param numero = numéro de téléphone ;
 	 */
-	public Telephone(String prefix, Integer numero) {
+	public Telephone(String prefix, Integer numero, String type) {
 		this.prefix = prefix;
 		this.numero = numero;
+		this.type = type ;
 	}
 
 	/**
@@ -33,6 +41,13 @@ public class Telephone {
 	 */
 	public Integer getNumero() {
 		return numero;
+	}
+	
+	/**
+	 * @return le type de telephone
+	 */
+	public String getType() {
+		return type ;
 	}
 
 	/**
@@ -50,6 +65,4 @@ public class Telephone {
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
-	
-	
 }
