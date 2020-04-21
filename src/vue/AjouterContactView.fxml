@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.AjouterContactViewController">
+   <children>
+      <JFXTextField fx:id="textPrefixe" alignment="CENTER" layoutX="109.0" layoutY="132.0" prefHeight="25.0" prefWidth="23.0" promptText="00" />
+      <JFXButton fx:id="buttonCancel" layoutX="193.0" layoutY="246.0" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #ABA7A6;" text="Cancel" />
+      <JFXButton fx:id="buttonOk" layoutX="384.0" layoutY="246.0" onAction="#onClickButtonOk" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #ABA7A6;" text="OK" />
+      <JFXTextField fx:id="textNumero" alignment="CENTER" layoutX="193.0" layoutY="132.0" prefHeight="25.0" prefWidth="137.0" promptText="00 00 00 00 00" />
+      <JFXTextField layoutX="52.0" layoutY="132.0" prefHeight="25.0" prefWidth="9.0" text="+" />
+      <JFXTextField layoutX="52.0" layoutY="53.0" prefHeight="25.0" prefWidth="235.0" promptText="Entrer un nouveau numéro de téléphone :" unFocusColor="BLACK" />
+      <SplitMenuButton fx:id="buttonMenu" layoutX="372.0" layoutY="132.0" mnemonicParsing="false" text="Selection type">
+        <items>
+            <MenuItem fx:id="menuItemOffice" mnemonicParsing="false" onAction="#onClickMenuItemOffice" text="Office" />
+          <MenuItem fx:id="menuItemHome" mnemonicParsing="false" onAction="#onClickMenuitemHome" text="Home" />
+          <MenuItem fx:id="menuItemFax" mnemonicParsing="false" onAction="#onClickMenuItemFax" text="Fax" />
+            <MenuItem fx:id="menuItemPager" mnemonicParsing="false" onAction="#onClickMenuItemPager" text="Pager" />
+            <MenuItem fx:id="menuItemMobile" mnemonicParsing="false" onAction="#onClickMenuItemMobile" text="Mobile" />
+        </items>
+      </SplitMenuButton>
+   </children>
+</AnchorPane>
