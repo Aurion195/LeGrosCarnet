@@ -1,15 +1,19 @@
 package carnet;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import sun.net.NetworkServer;
+
 public class Contact {
 	/**
 	 * Nom de famille
 	 */
-	private String firstName ;
+	private StringProperty firstName ;
 	
 	/**
 	 * Prénom
 	 */
-	private String lastName ;
+	private StringProperty lastName ;
 	
 	
 	/**
@@ -24,18 +28,47 @@ public class Contact {
 	 */
 	private boolean genre ;
 
+	
+	/**
+	 * Constructeur de contact
+	 * @param firstName = nom de famille ;
+	 * @param lastName = prenom ;
+	 * @param age = age ;
+	 * @param genre = homme ou femme ;
+	 */
+	public Contact(String firstName, String lastName, Integer age, boolean genre) {
+		this.firstName = new SimpleStringProperty(firstName);
+		this.lastName = new SimpleStringProperty(lastName);
+		this.age = age;
+		this.genre = genre;
+	}
+	
 	/**
 	 * @return le firstName ;
 	 */
-	public String getFirstName() {
-		return firstName;
+	public StringProperty getFirstNameProperty() {
+		return this.firstName ;
 	}
-
+	
 	/**
 	 * @return le lastName ;
 	 */
+	public StringProperty getLastNameProperty() {
+		return this.lastName ;
+	}
+	
+	/**
+	 * @return le firstName en string ;
+	 */
+	public String getFirstName() {
+		return firstName.get() ;
+	}
+
+	/**
+	 * @return le lastName en string;
+	 */
 	public String getLastName() {
-		return lastName;
+		return lastName.get() ;
 	}
 
 	/**
@@ -57,7 +90,7 @@ public class Contact {
 	 * @param firstName = nouveau firstName ;
 	 */
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstName = new SimpleStringProperty(firstName) ;
 	}
 
 	/**
@@ -65,7 +98,7 @@ public class Contact {
 	 * @param lastName = nouveau lastName ;
 	 */
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.lastName = new SimpleStringProperty(lastName);
 	}
 
 	/**

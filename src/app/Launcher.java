@@ -1,6 +1,13 @@
+package app;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
 
+import carnet.Contact;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -29,9 +36,37 @@ public class Launcher extends Application
 	 * Instance unique
 	 */
 	private static volatile Launcher instance = null;
-
-
-
+	
+	/**
+	 * Object qui va contenir tous les contacts du carnet
+	 */
+	private Map<String, ObservableList<Contact>> mapContact = new HashMap<>();
+	
+	
+	/**
+	 * Fonction pour tester l'affichage
+	 */
+	public void initMap() {
+		ObservableList<Contact> myVectorContactStudents = FXCollections.observableArrayList();
+		ObservableList<Contact> myVectorContactPrivate = FXCollections.observableArrayList();
+		ObservableList<Contact> myVectorContactHome = FXCollections.observableArrayList();
+		myVectorContactPrivate.add(new Contact("Mathieu", "Thomas", 25, true)) ;
+		this.mapContact.put("Private", myVectorContactPrivate) ;
+		
+		myVectorContactHome.add(new Contact("Mathieu", "Thomas", 25, true)) ;
+		myVectorContactHome.add(new Contact("Rezaigui", "Nizar", 25, true)) ;
+		this.mapContact.put("Home", myVectorContactHome) ;
+		
+	}
+	
+	public ObservableList<Contact> getContactPrivate() {
+		return this.mapContact.get("Private") ;
+	}
+	
+	public ObservableList<Contact> getContactHome() {
+		return this.mapContact.get("Home") ;
+	}
+	
 	/**
 	 * Constructeur de la classe
 	 */
@@ -71,6 +106,7 @@ public class Launcher extends Application
 	@Override
 	public void start(Stage primaryStage)  
 	{
+		this.initMap();
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("LeGrosCarnet");
 
@@ -85,7 +121,7 @@ public class Launcher extends Application
 		try {
 			//Load root layout from fxml file.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Launcher.class.getClassLoader().getResource("vue\\AjouterContactView.fxml"));
+			loader.setLocation(Launcher.class.getClassLoader().getResource("vue\\HomeView.fxml"));
 			rootLayout = (AnchorPane) loader.load();
 
 			//Show the scene containing the root layout.

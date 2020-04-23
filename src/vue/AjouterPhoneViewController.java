@@ -15,7 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 
-public class AjouterContactViewController implements Initializable {
+public class AjouterPhoneViewController implements Initializable {
 	
 	@FXML
 	/**
