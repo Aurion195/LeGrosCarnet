@@ -6,10 +6,13 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import app.Launcher;
 import enumeration.EnumTelephone;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuButton;
@@ -216,5 +219,22 @@ public class AjouterPhoneViewController implements Initializable {
 	 */
 	public void onClickMenuItemMobile(ActionEvent event) {
 		this.buttonMenu.setText(EnumTelephone.MOBILE.getType());
+	}
+	
+	@FXML
+	public void onClickButtonCancel() {
+		Launcher main = Launcher.getInstance();
+		FXMLLoader loader = new FXMLLoader();
+		try {
+			loader.setLocation(getClass().getResource("NewContactView.fxml"));
+			main.setRootLayout(loader.load());
+
+			Scene scene = new Scene(main.getRootLayout());
+			main.getPrimaryStage().setScene(scene);
+			main.getPrimaryStage().show();
+		} 
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

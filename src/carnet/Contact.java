@@ -2,6 +2,8 @@ package carnet;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import sun.net.NetworkServer;
 
 public class Contact {
@@ -27,6 +29,21 @@ public class Contact {
 	 * 0 = femme
 	 */
 	private boolean genre ;
+	
+	/**
+	 * Mail du contact
+	 */
+	private Mail mail ;
+	
+	/**
+	 * Adresse du contact
+	 */
+	private Address adress ;
+	
+	/**
+	 * Téléphone du contact
+	 */
+	private ObservableList<Telephone> telephone = FXCollections.observableArrayList() ;
 
 	
 	/**
@@ -36,11 +53,22 @@ public class Contact {
 	 * @param age = age ;
 	 * @param genre = homme ou femme ;
 	 */
-	public Contact(String firstName, String lastName, Integer age, boolean genre) {
+	public Contact(String firstName, String lastName, Integer age, boolean genre, Mail mail, Address adress, Telephone telephone) {
 		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
 		this.age = age;
 		this.genre = genre;
+		this.mail = mail ;
+		this.adress = adress ;
+		this.telephone.add(telephone) ;
+	}
+	
+	/**
+	 * Permet d'ajouter un téléphone au contact
+	 * @param telephone = nouveau numéro de téléphone ;
+	 */
+	public void ajouterTelephone(Telephone telephone) {
+		this.telephone.add(telephone) ;
 	}
 	
 	/**
@@ -61,30 +89,51 @@ public class Contact {
 	 * @return le firstName en string ;
 	 */
 	public String getFirstName() {
-		return firstName.get() ;
+		return this.firstName.get() ;
 	}
 
 	/**
 	 * @return le lastName en string;
 	 */
 	public String getLastName() {
-		return lastName.get() ;
+		return this.lastName.get() ;
 	}
 
 	/**
 	 * @return l'age ;
 	 */
 	public Integer getAge() {
-		return age;
+		return this.age;
 	}
 
 	/**
 	 * @return le genre ;
 	 */
 	public boolean isGenre() {
-		return genre;
+		return this.genre;
 	}
 
+	/**
+	 * @return le mail
+	 */
+	public Mail getMail() {
+		return this.mail ;
+	}
+	
+	/**
+	 * @return l'adresse du contact
+	 */
+	public Address getAddress() {
+		return this.adress ;
+	}
+	
+	/**
+	 * @return le téléphone
+	 */
+	public ObservableList<Telephone> getTelephone() {
+		return this.telephone ;
+	}
+	
 	/**
 	 * Permet de changer le nom
 	 * @param firstName = nouveau firstName ;
@@ -117,5 +166,11 @@ public class Contact {
 		this.genre = genre;
 	}
 	
-	
+	/**
+	 * Permet de changer l'addresse
+	 * @param address = nouvelle adresse
+	 */
+	public void setAdress(Address address) {
+		this.adress = address ;
+	}
 }

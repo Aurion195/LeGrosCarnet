@@ -1,52 +1,54 @@
 package carnet;
 
 import enumeration.EnumTelephone;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Telephone {
 	/**
 	 * Prefix 
 	 */
-	public String prefix ;
+	public StringProperty prefix ;
 	
 	/**
 	 * Numéro de téléphone
 	 */
-	public Integer numero ;
+	public StringProperty numero ;
 	
 	/**
 	 * Type de téléphone
 	 */
-	public String type ;
+	public StringProperty type ;
 	
 	/**
 	 * Constructeur du téléphone
 	 * @param prefix = prefix ;
 	 * @param numero = numéro de téléphone ;
 	 */
-	public Telephone(String prefix, Integer numero, String type) {
-		this.prefix = prefix;
-		this.numero = numero;
-		this.type = type ;
+	public Telephone(String prefix, String numero, String type) {
+		this.prefix = new SimpleStringProperty(prefix);
+		this.numero = new SimpleStringProperty(numero);
+		this.type = new SimpleStringProperty(type) ;
 	}
 
 	/**
 	 * @return le prefix
 	 */
-	public String getPrefix() {
+	public StringProperty getPrefix() {
 		return prefix;
 	}
 
 	/**
 	 * @return le numero
 	 */
-	public Integer getNumero() {
+	public StringProperty getNumero() {
 		return numero;
 	}
 	
 	/**
 	 * @return le type de telephone
 	 */
-	public String getType() {
+	public StringProperty getType() {
 		return type ;
 	}
 
@@ -55,14 +57,22 @@ public class Telephone {
 	 * @param prefix = nouveau prefix ;
 	 */
 	public void setPrefix(String prefix) {
-		this.prefix = prefix;
+		this.prefix = new SimpleStringProperty(prefix);;
 	}
 
 	/**
 	 * Permet de changer le numéro
 	 * @param numero = nouveau numéro ;
 	 */
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setNumero(String numero) {
+		this.numero = new SimpleStringProperty(numero);
+	}
+	
+	/**
+	 * Permet de changer le type de téléphone
+	 * @param type = nouveau type ;
+	 */
+	public void setType(String type) {
+		this.type = new SimpleStringProperty(type) ;
 	}
 }
