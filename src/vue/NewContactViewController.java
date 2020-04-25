@@ -55,7 +55,7 @@ public class NewContactViewController  implements Initializable {
 	 * On fait appel à la fonction private changeStage(String nom) ;
 	 */
 	public void onClickImageButtonPhone() {
-		this.changeStage("AjouterPhoneContactView.fxml");
+		this.changeStage("TelephoneView.fxml");
 		
 	}
 	

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.TelephoneViewController">
+   <children>
+      <TableView fx:id="tableTelephone" layoutX="14.0" layoutY="82.0" prefHeight="200.0" prefWidth="436.0">
+        <columns>
+          <TableColumn fx:id="columnPrefix" prefWidth="105.0" text="Prefix" />
+          <TableColumn fx:id="columnNumero" prefWidth="203.0" text="Numero" />
+            <TableColumn fx:id="columnType" minWidth="0.0" prefWidth="127.0" text="Type" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="buttonAdd" layoutX="487.0" layoutY="65.0" onMouseClicked="#onClickButtonAdd" prefHeight="34.0" prefWidth="83.0" text="Add" />
+      <JFXButton fx:id="buttonEdit" layoutX="487.0" layoutY="107.0" prefHeight="34.0" prefWidth="83.0" text="Edit" />
+      <JFXButton fx:id="buttonOk" layoutX="487.0" layoutY="204.0" onAction="#onClickButtonOk" onMouseClicked="#onClickButtonOk" prefHeight="34.0" prefWidth="83.0" text="OK" />
+      <JFXButton fx:id="buttonCancel" layoutX="487.0" layoutY="258.0" onAction="#onClickButtonCancel" onMouseClicked="#onClickButtonCancel" prefHeight="34.0" prefWidth="83.0" text="Cancel" />
+      <JFXButton layoutX="67.0" layoutY="28.0" prefHeight="25.0" prefWidth="469.0" style="-fx-background-color: grey;" text="Téléphone du contact" />
+      <JFXButton fx:id="buttonRemove" layoutX="487.0" layoutY="156.0" prefHeight="34.0" prefWidth="83.0" text="Remove" />
+   </children>
+</AnchorPane>

@@ -226,7 +226,7 @@ public class AjouterPhoneViewController implements Initializable {
 		Launcher main = Launcher.getInstance();
 		FXMLLoader loader = new FXMLLoader();
 		try {
-			loader.setLocation(getClass().getResource("NewContactView.fxml"));
+			loader.setLocation(getClass().getResource("TelephoneView.fxml"));
 			main.setRootLayout(loader.load());
 
 			Scene scene = new Scene(main.getRootLayout());
